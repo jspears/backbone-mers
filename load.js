@@ -6,7 +6,7 @@ function load(uri, file, alldone) {
         console.log('all done');
         process.exit(0)
     };
-    var mongoose = require('mers/node_modules/mongoose');
+    var mongoose = require('mongoose');
 
 
     var conn = mongoose.connect(uri);
