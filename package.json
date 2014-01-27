@@ -1,0 +1,38 @@
+{
+  "name": "backbone-mers",
+  "version": "0.1.0",
+  "description": "Directory Backbone",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies":{
+    "express":"latest",
+    "mers":"git+https://github.com/jspears/mers.git#master",
+    "mongoose":"latest"
+},
+  "devDependencies":{
+   "csv":"latest",
+   "mocha":"latest"
+ },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jspears/backbone-mers.git"
+  },
+  "keywords": [
+    "backbone",
+    "mers",
+    "bootstrap",
+    "requirejs",
+    "express"
+  ],
+  "author": "Justin Spears",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jspears/backbone-mers/issues"
+  },
+  "homepage": "https://github.com/jspears/backbone-mers"
+}
