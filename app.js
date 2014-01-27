@@ -2,9 +2,9 @@
  * Module dependencies.
  */
 
-var express = require('express');
-
-var app = module.exports = express.createServer();
+var express = require("express");
+var app = express();
+var app = module.exports = app;
 
 // Configuration so we can do different profiles -- you can do this inline if you want.
 function setupRest(db) {
@@ -80,9 +80,10 @@ app.get('/api/employee/:id/reports', function (req, rex, next) {
 app.configure(function () {
     app.use(express.bodyParser());
     app.use(express.methodOverride());
+
     app.use(app.router);
     //change the static dir up one.
-    app.use(express.static(__dirname + '/../public/'));
+    app.use(express.static(__dirname + '/public'));
 });
 
 app.configure('development', function () {
@@ -103,5 +104,5 @@ app.configure('production', function () {
 });
 if (!module.parent) {
     app.listen(3000);
-    console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
+    console.log("Express server listening on port %d in %s mode", 3000, app.settings.env);
 }

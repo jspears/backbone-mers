@@ -6,16 +6,12 @@
  employee’s manager or any of his/her direct reports.
 
 ## Set Up: ##
-
-1. Create a MySQL database name "directory".
-2. Execute directory.sql to create and populate the "employee" table:
-
-	mysql directory -uroot < directory.sql
+# start mongo
+mongod --dbpath ./path/to/mongo
+# load data
+node load.js
+# start app
+node app.js
 
 ## Services: ##
-
-The application is available with a PHP or Java services:
-
-- The PHP services are available in the api directory of this repository. The RESTful services are implemented in PHP using the [Slim framework](http://www.slimframework.com/) (also included in the api directory).
-- The Java back-end will be available soon.
-
+Services are provided by mers.
