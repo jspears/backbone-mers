@@ -1,14 +1,15 @@
 define(['backbone', 'supermodel'], function (Backbone, Supermodel) {
     var Employee = Supermodel.Model.extend({
-        collection: EmployeeCollection,
         parse: function (resp) {
             if (resp && resp.status === 0) {
                 return resp.payload;
             }
             return resp;
         },
-        parent: Employee,
-        urlRoot: '../api/employees'
+        urlRoot: '../api/employees',
+        defaults: {
+            reports: []
+        }
 
     });
 
@@ -44,7 +45,7 @@ define(['backbone', 'supermodel'], function (Backbone, Supermodel) {
 
     Employee.has().one('manager', {
         model: Employee,
-        inverse: 'manager'
+        inverse: 'reports'
     });
 
     return {

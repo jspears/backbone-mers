@@ -3,7 +3,7 @@ define(['views/base', 'views/employeelistitem'], function (View, EmployeeListIte
 
         tagName: 'ul',
 
-        className: 'nav nav-list',
+        className: 'list-group',
         itemView: EmployeeListItemView,
         initialize: function () {
             this.listenTo(this.collection, 'reset', this.render, this);

@@ -24,7 +24,7 @@ function setupRest(db) {
                     var manager = obj.manager;
                     o.managerFirstName = manager ? manager.firstName : '';
                     o.managerLastName = manager ? manager.lastName : '';
-                    o.managerId = manager && manager._id ? manager._id.toString() : manager || '';
+                    o.manager_id = o.managerId = manager && manager._id ? manager._id.toString() : manager || '';
 //                    delete o.reports;
                     delete o.manager;
                     return o;

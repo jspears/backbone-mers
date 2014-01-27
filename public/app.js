@@ -28,14 +28,19 @@ define(['backbone', 'views/header', 'models/employeemodel'], function (Backbone,
 
         },
         employeeDetails: function (id) {
-            var employee = new Employee({id: id});
+            var employee = Employee.create({id: id});
             employee.fetch({
+                reset: true,
                 success: function (data) {
                     require(['views/employee'], function (EmployeeFullView) {
                         // Note that we could also 'recycle' the same instance of EmployeeFullView
                         // instead of creating new instances
-                        $('#content').html(new EmployeeFullView({model: data}).render().el);
-                    });
+                        if (this.currentView) {
+                            this.currentView.remove();
+                        }
+                        this.currentView = new EmployeeFullView({model: data}).render();
+                        $('#content').html(this.currentView.el)
+                    }.bind(this));
                 }
             });
         }

@@ -1,4 +1,8 @@
-<a href='#employees/<%= id %>'>
-    <img width="50" height="50" src="pics/<%= firstName %>_<%= lastName %>50.jpg" style="float:left;"/>
-    <p class="list-item"><%= firstName %> <%= lastName %><br /><%= title %></p>
+<%if (model.reports){%>
+<span class="badge"><%=model.reports %></span>
+<%}%>
+
+<a href='#employees/<%=  model.id %>'>
+    <img width="50" height="50" src="pics/<%=  model.firstName %>_<%=  model.lastName %>50.jpg" style="float:left;"/>
+    <p class="list-item"><%=  model.firstName %> <%=  model.lastName %><br /><%=  model.title %></p>
 </a>
