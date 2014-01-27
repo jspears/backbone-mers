@@ -1,25 +1,22 @@
-define(['backbone'], function (Backbone) {
-    var Employee = Backbone.Model.extend({
-
-        urlRoot: "../api/employees",
-
+define(['backbone', 'supermodel'], function (Backbone, Supermodel) {
+    var Employee = Supermodel.Model.extend({
+        collection: EmployeeCollection,
         parse: function (resp) {
-            if (resp.status == 0) {
+            if (resp && resp.status === 0) {
                 return resp.payload;
             }
             return resp;
         },
-        initialize: function () {
-            this.reports = new EmployeeCollection();
-            this.reports.url = '../api/employees/' + this.id + '/reports';
-        }
+        parent: Employee,
+        urlRoot: '../api/employees'
 
     });
 
     var EmployeeCollection = Backbone.Collection.extend({
 
-        model: Employee,
-
+        model: function (attrs, options) {
+            return Employee.create(attrs, options);
+        },
         url: "../api/employees",
         parse: function (resp) {
             if (resp.status == 0) {
@@ -28,21 +25,28 @@ define(['backbone'], function (Backbone) {
             return resp;
         },
         findByName: function (key) {
-            // TODO: Modify service to include firstName in search
-            var url = (key == '') ? '../api/employees' : "../api/employees/search/" + key;
-            console.log('findByName: ' + key);
-            var self = this;
-            $.ajax({
-                url: url,
-                dataType: "json",
-                success: function (data) {
-                    console.log("search success: " + data.length);
-                    self.reset(data);
-                }
+            this.fetch({
+                url: "../api/employees/search/" + key,
+                reset: true
             });
         }
 
     });
+    Employee.has().many('reports', {
+        collection: EmployeeCollection.extend({
+            url: function () {
+                return this.owner.url() + '/reports';
+            }
+        }),
+        inverse: 'manager'
+
+    });
+
+    Employee.has().one('manager', {
+        model: Employee,
+        inverse: 'manager'
+    });
+
     return {
         Employee: Employee,
         EmployeeCollection: EmployeeCollection

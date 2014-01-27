@@ -3,7 +3,8 @@ define(['views/employee', 'views/employeelist', 'backbone', 'tpl!tpl/employee-fu
         template: template,
         onFetch: function (data) {
             if (data.length == 0)
-                $('.no-reports').show();
+                this.$('.no-reports').show();
+            this.$('.reports').append(new EmployeeListView({model: this.model.reports}).render().el);
         },
         render: function (eventName) {
             this.$el.html(this.template(this.model.toJSON()));
@@ -11,7 +12,7 @@ define(['views/employee', 'views/employeelist', 'backbone', 'tpl!tpl/employee-fu
             this.model.reports.fetch({
                 success: this.onFetch.bind(this)
             });
-            this.$('#reports').append(new EmployeeListView({model: this.model.reports}).render().el);
+
             return this;
         }
     });

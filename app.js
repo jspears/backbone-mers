@@ -38,10 +38,6 @@ function setupRest(db) {
 
     //Change the response format to not include metadata, just the payload.
     // In theory you could change this to any type of response.
-    rest.responseStream.prototype.format = function (data) {
-        return JSON.stringify(data.payload);
-    }
-    //add the rest api.
 
     app.use('/api', rest.rest());
 }

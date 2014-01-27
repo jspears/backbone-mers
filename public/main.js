@@ -12,7 +12,8 @@ require.config({
         jquery: 'lib/vendor/jquery-1.11.0/jquery',
         bootstrap: 'lib/vendor/bootstrap-3.0.3/bootstrap',
         backbone: 'lib/vendor/backbone-1.1.0/backbone',
-        underscore: 'lib/vendor/underscore-1.5.2/underscore'
+        underscore: 'lib/vendor/underscore-1.5.2/underscore',
+        supermodel: 'lib/vendor/supermodel-0.4.4/supermodel'
 
     },
     shim: {
@@ -30,6 +31,10 @@ require.config({
 
         underscore: {
             exports: '_'
+        },
+        supermodel: {
+            exports: 'Supermodel',
+            deps:['backbone']
         }
     }
 });

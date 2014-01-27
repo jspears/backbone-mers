@@ -1,12 +1,21 @@
-define(['backbone', 'tpl!tpl/employee-details'], function (Backbone, template) {
-    return Backbone.View.extend({
+define(['views/base', 'views/employeelist', 'tpl!tpl/employee-details'], function (View, EmployeeListView, template) {
+    return View.extend({
         template: template,
-        initialize:function(){
-            this.listenTo(this.model, 'change', this.render);
-//            this.model.bind("change", this.render, this);
+        onFetch: function (data) {
+            if (!data || data.length == 0)
+                this.$('.no-reports').show();
+            else
+                this.$('.reports').append(new EmployeeListView({collection: this.model.reports()}).render().el);
         },
         render: function (eventName) {
             this.$el.html(this.template(this.model.toJSON()));
+            if (this.model.reports) {
+                this.model.reports && this.model.reports().fetch({
+                    success: this.onFetch.bind(this)
+                });
+            } else {
+                this.onFetch([]);
+            }
             return this;
         }
     });
