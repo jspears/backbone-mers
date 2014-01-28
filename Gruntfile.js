@@ -16,7 +16,6 @@ module.exports = function(grunt) {
         ],
         basePath: '',
         frameworks: [ 'mocha', 'requirejs', 'chai' ],
-        reporters: [ 'progress' ],
         port: 9876,
         colors: true,
         autoWatch: false,
@@ -26,7 +25,18 @@ module.exports = function(grunt) {
       },
 
       unit: {
-        singleRun: true
+        singleRun: true,
+
+        reporters: [ 'progress', 'coverage' ],
+
+        preprocessors: {
+          'public/views/base.js': [ 'coverage' ]
+        },
+
+        coverageReporter: {
+          type: 'html',
+          dir: 'artifacts/coverage/'
+        }
       }
     }
   });

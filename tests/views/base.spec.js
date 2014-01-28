@@ -15,7 +15,7 @@ define([ 'jquery', 'underscore', 'backbone', 'views/base' ], function($, _, Back
       base.template = tmpl;
       base.render();
 
-      expect(el.html()).to.equal('Some Text');
+      expect(base.$el.html()).to.equal('Some Text');
     });
 
   });
