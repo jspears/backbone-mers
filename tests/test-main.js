@@ -9,11 +9,11 @@ for (var file in window.__karma__.files) {
 requirejs.config({
   baseUrl: '/base/public',
   paths: {
-    jquery:     'lib/vendor/jquery-1.11.0/jquery',
-    bootstrap:  'lib/vendor/bootstrap-3.0.3/bootstrap',
-    backbone:   'lib/vendor/backbone-1.1.0/backbone',
-    underscore: 'lib/vendor/underscore-1.5.2/underscore',
-    supermodel: 'lib/vendor/supermodel-0.4.4/supermodel'
+    jquery:     'vendor/jquery-1.11.0/jquery',
+    bootstrap:  'vendor/bootstrap-3.0.3/bootstrap',
+    backbone:   'vendor/backbone-1.1.0/backbone',
+    underscore: 'vendor/underscore-1.5.2/underscore',
+    supermodel: 'vendor/supermodel-0.4.4/supermodel'
   },
   shim: {
     jquery: {

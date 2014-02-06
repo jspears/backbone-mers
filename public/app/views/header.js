@@ -1,4 +1,4 @@
-define(['views/base', 'backbone', 'underscore', 'models/employeemodel', 'views/employeelist', 'tpl!tpl/header'], function (View, Backbone, _, model, EmployeeListView, template) {
+define(['app/views/base', 'backbone', 'underscore', 'app/models/employeemodel', 'app/views/employeelist', 'tpl!tpl/header'], function (View, Backbone, _, model, EmployeeListView, template) {
 
     return View.extend({
         template: template,

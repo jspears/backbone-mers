@@ -1,4 +1,4 @@
-define(['views/base', 'views/employeelist', 'tpl!tpl/employee-details'], function (View, EmployeeListView, template) {
+define(['app/views/base', 'app/views/employeelist', 'tpl!tpl/employee-details'], function (View, EmployeeListView, template) {
     return View.extend({
         template: template,
         onFetch: function (data) {

@@ -1,4 +1,4 @@
-define([ 'jquery', 'underscore', 'backbone', 'views/base' ], function($, _, Backbone, Base) {
+define([ 'jquery', 'underscore', 'backbone', 'app/views/base' ], function($, _, Backbone, Base) {
 
   describe('Base view', function() {
 

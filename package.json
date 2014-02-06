@@ -31,7 +31,10 @@
     "grunt": "~0.4.2",
     "karma-mocha": "~0.1.1",
     "karma-chai": "0.0.2",
-    "karma-coverage": "~0.1.5"
+    "karma-coverage": "~0.1.5",
+    "grunt-contrib-clean": "~0.5.0",
+    "lcov-result-merger": "0.0.2",
+    "grunt-exec": "~0.4.3"
   },
   "repository": {
     "type": "git",

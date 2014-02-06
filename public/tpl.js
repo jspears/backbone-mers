@@ -1,4 +1,4 @@
-define(['lib/vendor/requirejs-2.1.10/text', 'underscore'], function (text, _) {
+define(['vendor/requirejs-2.1.10/text', 'underscore'], function (text, _) {
     'use strict';
 
     var buildMap = {},

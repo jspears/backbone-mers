@@ -1,4 +1,4 @@
-define(['views/employee', 'views/employeelist', 'backbone', 'tpl!tpl/employee-full'], function (EmployeeView, EmployeeListView, Backbone, template) {
+define(['app/views/employee', 'app/views/employeelist', 'backbone', 'tpl!tpl/employee-full'], function (EmployeeView, EmployeeListView, Backbone, template) {
     return  Backbone.View.extend({
         template: template,
         onFetch: function (data) {

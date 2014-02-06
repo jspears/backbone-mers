@@ -1,4 +1,4 @@
-define(['backbone', 'views/header', 'models/employeemodel'], function (Backbone, HeaderView, model) {
+define(['backbone', 'app/views/header', 'app/models/employeemodel'], function (Backbone, HeaderView, model) {
     var Employee = model.Employee;
     var App = Backbone.Router.extend({
 
@@ -19,7 +19,7 @@ define(['backbone', 'views/header', 'models/employeemodel'], function (Backbone,
         defaultAction: function (action) {
             console.log('routing', action);
             var sp = (action || 'home').split('/');
-            require(['views/' + sp.shift()], function (View) {
+            require(['app/views/' + sp.shift()], function (View) {
                 if (this.currentView) {
                     this.currentView.remove();
                 }
@@ -32,7 +32,7 @@ define(['backbone', 'views/header', 'models/employeemodel'], function (Backbone,
             employee.fetch({
                 reset: true,
                 success: function (data) {
-                    require(['views/employee'], function (EmployeeFullView) {
+                    require(['app/views/employee'], function (EmployeeFullView) {
                         // Note that we could also 'recycle' the same instance of EmployeeFullView
                         // instead of creating new instances
                         if (this.currentView) {

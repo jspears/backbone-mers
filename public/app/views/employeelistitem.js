@@ -1,4 +1,4 @@
-define(['views/base', 'tpl!tpl/employee-list-item'], function (View, template) {
+define(['app/views/base', 'tpl!tpl/employee-list-item'], function (View, template) {
     return View.extend({
         tagName: "li",
         className: 'list-group-item',

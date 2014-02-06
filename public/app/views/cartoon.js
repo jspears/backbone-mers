@@ -1,4 +1,4 @@
-define(['views/base', 'underscore', 'tpl!tpl/cartoon'], function (View, _, template) {
+define(['app/views/base', 'underscore', 'tpl!tpl/cartoon'], function (View, _, template) {
     function image($img, data, width, height) {
         $img.attr('width', width);
         $img.attr('height', height);

@@ -1,4 +1,4 @@
-define(['views/base', 'views/employeelistitem'], function (View, EmployeeListItemView) {
+define(['app/views/base', 'app/views/employeelistitem'], function (View, EmployeeListItemView) {
     return View.extend({
 
         tagName: 'ul',
